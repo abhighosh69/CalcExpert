@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CalcExpert</string>
+    <string name="enter_fnumber">Enter First Number</string>
+    <string name="enter_snumber">Enter Second Number</string>
+    <string name="add">Addition</string>
+    <string name="sub">Subtraction</string>
+    <string name="div">Division</string>
+    <string name="mul">Multiplication</string>
+</resources>

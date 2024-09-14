@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/enterFirstNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:text="@string/enter_fnumber"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/enterSecondNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="@string/enter_snumber"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/typeFirstNum"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="@+id/typeFirstNum"
+            app:layout_constraintTop_toBottomOf="@+id/typeFirstNum" />
+
+        <EditText
+            android:id="@+id/typeFirstNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/enterFirstNum"
+            app:layout_constraintStart_toStartOf="@+id/enterFirstNum"
+            app:layout_constraintTop_toBottomOf="@+id/enterFirstNum"
+            tools:ignore="LabelFor,SpeakableTextPresent" />
+
+
+        <EditText
+            android:id="@+id/typeSecondNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/enterSecondNum"
+            app:layout_constraintStart_toStartOf="@+id/enterSecondNum"
+            app:layout_constraintTop_toBottomOf="@+id/enterSecondNum"
+            tools:ignore="LabelFor, SpeakableTextPresent" />
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/add"
+            android:backgroundTint="@color/button_color"
+            app:layout_constraintEnd_toStartOf="@+id/sub"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/displayResult" />
+
+        <Button
+            android:id="@+id/sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="68dp"
+            android:text="@string/sub"
+            android:backgroundTint="@color/button_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/displayResult" />
+
+
+        <Button
+            android:id="@+id/mul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="52dp"
+            android:text="@string/mul"
+            android:backgroundTint="@color/button_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sub"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/div"
+            android:layout_width="114dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/div"
+            android:backgroundTint="@color/button_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mul"
+            app:layout_constraintHorizontal_bias="0.618"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/displayResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/typeSecondNum" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
