@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements calculations {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +20,29 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    @Override
+    public int sub(int num1, int num2) {
+        return num1 - num2;
+    }
+
+    @Override
+    public int mul(int num1, int num2) {
+        return num1 * num2;
+    }
+
+    @Override
+    public double div(int num1, int num2) {
+        if (num2 != 0) {
+            return(double) num1 / num2;
+        } else {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
     }
 }
