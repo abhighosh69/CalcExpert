@@ -1,5 +1,6 @@
 package com.ghoshabhi.calcexpert;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,12 +12,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class MainActivity extends AppCompatActivity implements calculations {
 
 
     private EditText typeFirstNum, typeSecondNum;
     private Button addButton, subButton, mulButton, divButton;
     private TextView displayResult;
+    private FloatingActionButton settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +41,17 @@ public class MainActivity extends AppCompatActivity implements calculations {
         mulButton = findViewById(R.id.mulButton);
         divButton = findViewById(R.id.divButton);
         displayResult = findViewById(R.id.displayResult);
+        settingsButton = findViewById(R.id.settingsButton);
 
         addButton.setOnClickListener(v-> performOperation("add"));
         subButton.setOnClickListener(v -> performOperation("sub"));
         mulButton.setOnClickListener(v -> performOperation("mul"));
         divButton.setOnClickListener(v -> performOperation("div"));
+
+        settingsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 
     protected void performOperation(String operation) {
@@ -76,8 +86,6 @@ public class MainActivity extends AppCompatActivity implements calculations {
             displayResult.setText(e.getMessage());
         }
     }
-
-
 
     @Override
     public int add(int num1, int num2) {
