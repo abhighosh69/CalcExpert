@@ -8,6 +8,7 @@
     <string name="mul">Multiplication</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="settings">Settings</string>
+    <string name="cls">Close</string>
 
     <!-- Theme Options for Light/Dark Mode -->
         <string-array name="theme_options">

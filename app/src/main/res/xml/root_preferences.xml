@@ -2,6 +2,18 @@
     <!-- General Preferences Category -->
     <PreferenceCategory android:title="General">
 
+        <!-- Button Sound Toggle -->
+        <SwitchPreference
+            android:key="sound_preference"
+            android:title="Button Sounds"
+            android:summary="Enable or disable button click sounds"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- Display Preferences Category -->
+    <PreferenceCategory android:title="Display">
+
         <!-- Theme Selection (Light/Dark Mode) -->
         <ListPreference
             android:key="theme_preference"
@@ -11,28 +23,6 @@
             android:entries="@array/theme_options"
             android:entryValues="@array/theme_values"
             android:defaultValue="light" />
-
-        <!-- Button Sound Toggle -->
-        <SwitchPreference
-            android:key="sound_preference"
-            android:title="Button Sounds"
-            android:summary="Enable or disable button click sounds"
-            android:defaultValue="true" />
-
-
-    </PreferenceCategory>
-
-    <!-- Display Preferences Category -->
-    <PreferenceCategory android:title="Display">
-
-        <!-- Font Size Adjustment -->
-        <SeekBarPreference
-            android:key="font_size_preference"
-            android:title="Font Size"
-            android:summary="Adjust the font size for the calculator"
-            android:min="12"
-            android:max="24"
-            android:defaultValue="16" />
 
     </PreferenceCategory>
 

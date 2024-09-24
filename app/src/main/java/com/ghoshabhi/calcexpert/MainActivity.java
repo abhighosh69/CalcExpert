@@ -1,6 +1,7 @@
 package com.ghoshabhi.calcexpert;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,16 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity implements calculations {
 
-
     private EditText typeFirstNum, typeSecondNum;
     private Button addButton, subButton, mulButton, divButton;
     private TextView displayResult;
     private FloatingActionButton settingsButton;
+    private SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +45,41 @@ public class MainActivity extends AppCompatActivity implements calculations {
         displayResult = findViewById(R.id.displayResult);
         settingsButton = findViewById(R.id.settingsButton);
 
-        addButton.setOnClickListener(v-> performOperation("add"));
-        subButton.setOnClickListener(v -> performOperation("sub"));
-        mulButton.setOnClickListener(v -> performOperation("mul"));
-        divButton.setOnClickListener(v -> performOperation("div"));
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean soundEnabled = sharedPreferences.getBoolean("sound_preference", true);
+
+        soundManager = new SoundManager(this, soundEnabled);
+
+
+        addButton.setOnClickListener(v-> {
+            performOperation("add");
+            soundManager.playClickSound();
+        });
+        subButton.setOnClickListener(v -> {
+            performOperation("sub");
+            soundManager.playClickSound();
+        });
+        mulButton.setOnClickListener(v -> {
+            performOperation("mul");
+            soundManager.playClickSound();
+        });
+        divButton.setOnClickListener(v -> {
+            performOperation("div");
+            soundManager.playClickSound();
+        });
 
         settingsButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
         });
+
+        SoundManager.muteSystemSound(this);
+    }
+
+    // Getter method for SoundManager
+    public SoundManager getSoundManager() {
+        return soundManager;
     }
 
     protected void performOperation(String operation) {
@@ -109,5 +137,11 @@ public class MainActivity extends AppCompatActivity implements calculations {
         } else {
             throw new IllegalArgumentException("Cannot divide by zero");
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        soundManager.release();
     }
 }
